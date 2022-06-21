@@ -15,7 +15,7 @@ namespace Unit05.Game.Casting
         /// <summary>
         /// Constructs a new instance of a Snake.
         /// </summary>
-        public Snake()
+        public Bike()
         {
             PrepareBody();
         }
