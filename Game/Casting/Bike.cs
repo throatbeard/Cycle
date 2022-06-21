@@ -8,7 +8,7 @@ namespace Unit05.Game.Casting
     /// <para>A long limbless reptile.</para>
     /// <para>The responsibility of Snake is to move itself.</para>
     /// </summary>
-    public class Snake : Actor
+    public class Bike : Actor
     {
         private List<Actor> segments = new List<Actor>();
 
