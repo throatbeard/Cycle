@@ -25,13 +25,16 @@ namespace Unit05.Game.Scripting
         public void Execute(Cast cast, Script script)
         {
             Bike bike = (Bike)cast.GetFirstActor("bike");
+            Bike bike2 = (Bike)cast.GetFirstActor("bike2");
             List<Actor> segments = bike.GetSegments();
+            List<Actor> segments2 = bike2.GetSegments();
            // Actor score = cast.GetFirstActor("score");
             //Actor food = cast.GetFirstActor("food");
             List<Actor> messages = cast.GetActors("messages");
             
             videoService.ClearBuffer();
             videoService.DrawActors(segments);
+            videoService.DrawActors(segments2);
             //videoService.DrawActor(score);
             //videoService.DrawActor(food);
             videoService.DrawActors(messages);

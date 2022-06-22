@@ -19,7 +19,8 @@ namespace Unit05
         {
             // create the cast
             Cast cast = new Cast();
-            cast.AddActor("bike", new Bike());
+            cast.AddActor("bike", new Bike(225));
+            cast.AddActor("bike2", new Bike(675));
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();

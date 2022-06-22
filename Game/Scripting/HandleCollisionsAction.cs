@@ -62,10 +62,21 @@ namespace Unit05.Game.Scripting
         private void HandleSegmentCollisions(Cast cast)
         {
             Bike bike = (Bike)cast.GetFirstActor("bike");
+            Bike bike2 = (Bike)cast.GetFirstActor("bike2");
             Actor head = bike.GetHead();
+            Actor head2 = bike2.GetHead();
             List<Actor> body = bike.GetBody();
+            List<Actor> body2 = bike2.GetBody();
 
             foreach (Actor segment in body)
+            {
+                if (segment.GetPosition().Equals(head2.GetPosition()))
+                {
+                    isGameOver = true;
+                }
+            }
+            
+            foreach (Actor segment in body2)
             {
                 if (segment.GetPosition().Equals(head.GetPosition()))
                 {
@@ -80,6 +91,8 @@ namespace Unit05.Game.Scripting
             {
                 Bike bike = (Bike)cast.GetFirstActor("bike");
                 List<Actor> segments = bike.GetSegments();
+                Bike bike2 = (Bike)cast.GetFirstActor("bike2");
+                List<Actor> segments2 = bike2.GetSegments();
                 //Food food = (Food)cast.GetFirstActor("food");
 
                 // create a "game over" message
@@ -94,6 +107,11 @@ namespace Unit05.Game.Scripting
 
                 // make everything white
                 foreach (Actor segment in segments)
+                {
+                    segment.SetColor(Constants.WHITE);
+                }
+
+                foreach (Actor segment in segments2)
                 {
                     segment.SetColor(Constants.WHITE);
                 }

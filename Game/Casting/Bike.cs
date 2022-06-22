@@ -15,9 +15,9 @@ namespace Unit05.Game.Casting
         /// <summary>
         /// Constructs a new instance of a Bike.
         /// </summary>
-        public Bike()
+        public Bike(int x)
         {
-            PrepareBody();
+            PrepareBody(x);
         }
 
         /// <summary>
@@ -98,9 +98,8 @@ namespace Unit05.Game.Casting
         /// <summary>
         /// Prepares the bike and trail for moving.
         /// </summary>
-        private void PrepareBody()
+        private void PrepareBody(int x)
         {
-            int x = Constants.MAX_X / 2;
             int y = Constants.MAX_Y / 2;
 
             for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
