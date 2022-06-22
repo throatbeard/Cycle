@@ -10,8 +10,8 @@ namespace Unit05.Game.Scripting
     /// <summary>
     /// <para>An update action that handles interactions between the actors.</para>
     /// <para>
-    /// The responsibility of HandleCollisionsAction is to handle the situation when the snake 
-    /// collides with the food, or the snake collides with its segments, or the game is over.
+    /// The responsibility of HandleCollisionsAction is to handle the situation when a bike
+    /// collides with the trail of the other bike.
     /// </para>
     /// </summary>
     public class HandleCollisionsAction : Action
@@ -30,33 +30,13 @@ namespace Unit05.Game.Scripting
         {
             if (isGameOver == false)
             {
-                //HandleFoodCollisions(cast);
                 HandleSegmentCollisions(cast);
                 HandleGameOver(cast);
             }
         }
 
         /// <summary>
-        /// Updates the score nd moves the food if the snake collides with it.
-        /// </summary>
-        /// <param name="cast">The cast of actors.</param>
-        /*private void HandleFoodCollisions(Cast cast)
-        {
-            Bike bike = (Bike)cast.GetFirstActor("bike");
-            //Score score = (Score)cast.GetFirstActor("score");
-            //Food food = (Food)cast.GetFirstActor("food");
-            
-            if (snake.GetHead().GetPosition().Equals(food.GetPosition()))
-            {
-                int points = food.GetPoints();
-                snake.GrowTail(points);
-                score.AddPoints(points);
-                food.Reset();
-            }
-        }*/
-
-        /// <summary>
-        /// Sets the game over flag if the snake collides with one of its segments.
+        /// Sets the game over flag if a bike collides with the other bikes trail.
         /// </summary>
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
@@ -65,10 +45,10 @@ namespace Unit05.Game.Scripting
             Bike bike2 = (Bike)cast.GetFirstActor("bike2");
             Actor head = bike.GetHead();
             Actor head2 = bike2.GetHead();
-            List<Actor> body = bike.GetBody();
-            List<Actor> body2 = bike2.GetBody();
+            List<Actor> trail = bike.GetBody();
+            List<Actor> trail2 = bike2.GetBody();
 
-            foreach (Actor segment in body)
+            foreach (Actor segment in trail)
             {
                 if (segment.GetPosition().Equals(head2.GetPosition()))
                 {
@@ -76,7 +56,7 @@ namespace Unit05.Game.Scripting
                 }
             }
             
-            foreach (Actor segment in body2)
+            foreach (Actor segment in trail2)
             {
                 if (segment.GetPosition().Equals(head.GetPosition()))
                 {
@@ -117,7 +97,6 @@ namespace Unit05.Game.Scripting
                     segment.SetColor(Constants.WHITE);
                     bike2.SetColor(Constants.WHITE);
                 }
-                //food.SetColor(Constants.WHITE);
             }
         }
 
