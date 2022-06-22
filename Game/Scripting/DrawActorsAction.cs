@@ -39,6 +39,9 @@ namespace Unit05.Game.Scripting
             //videoService.DrawActor(food);
             videoService.DrawActors(messages);
             videoService.FlushBuffer();
+
+            bike.GrowTrail(1, bike.GetColor());
+            bike2.GrowTrail(1, bike2.GetColor());
         }
     }
 }

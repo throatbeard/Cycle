@@ -109,11 +109,13 @@ namespace Unit05.Game.Scripting
                 foreach (Actor segment in segments)
                 {
                     segment.SetColor(Constants.WHITE);
+                    bike.SetColor(Constants.WHITE);
                 }
 
                 foreach (Actor segment in segments2)
                 {
                     segment.SetColor(Constants.WHITE);
+                    bike2.SetColor(Constants.WHITE);
                 }
                 //food.SetColor(Constants.WHITE);
             }
